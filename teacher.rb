@@ -1,6 +1,5 @@
 require_relative 'person'
 
-# This is a Teacher class that represents a teacher in a school.
 # class Teacher < Person
 # end
 class Teacher < Person
