@@ -8,6 +8,7 @@ class Person < Nameable
     @age = age
     @parent_permission = parent_permission
     @nameable = nameable
+    @rentals = nil
   end
 
   private
@@ -26,6 +27,11 @@ class Person < Nameable
     name
   end
 
-  attr_reader :id
-  attr_accessor :name, :age
+  def add_rental(rental)
+    @rentals ||= []
+    @rentals.push(rental)
+  end
+
+  attr_accessor :name, :age, :rental
+  attr_reader :id, :rentals
 end
