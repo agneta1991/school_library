@@ -1,5 +1,5 @@
-# class Book
-# end
+require_relative 'rental'
+
 class Book
   def initialize(title, author)
     @title = title
@@ -11,6 +11,5 @@ class Book
     @rentals.push(rental)
   end
 
-  attr_accessor :title, :author
-  attr_reader :rentals
+  attr_accessor :title, :author, :rentals
 end

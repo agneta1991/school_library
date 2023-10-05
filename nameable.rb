@@ -1,13 +1,9 @@
-require_relative 'person'
-
-# class Nameable
 class Nameable
   def correct_name
     raise NotImplementedError
   end
 end
 
-# class Decoration < Nameable
 class Decorator < Nameable
   def initialize(nameable)
     super
