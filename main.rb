@@ -37,10 +37,7 @@ class Main
          "5. Create a rental\n" \
          "6. List all rentals to a given person id\n" \
          "7. Exit\n\n"
-    #@choice = gets.chomp.to_i
-    # options
   end
 end
 
-# Main.new.main
 Main.new.run
