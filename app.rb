@@ -22,17 +22,21 @@ class App
     end
   end
 
+  def ask_name_and_age
+    print 'Age:'
+    @age = gets.chomp.to_i
+    print 'Name:'
+    @name = gets.chomp
+  end
+
   def create_person
+    ask_name_and_age
     puts "\nWould you like to create a student(1) or a teacher(2)?"
     option = gets.chomp.to_i
 
     if option == 1
-      print 'Age:'
-      age = gets.chomp.to_i
-      print 'Name:'
-      name = gets.chomp
 
-      if age < 18
+      if @age < 18
         print 'Has parent permission? [Y/N]:'
         permission = gets.chomp
       end
@@ -41,13 +45,9 @@ class App
 
       print 'Student created successfully!'
     elsif option == 2
-      print 'Age:'
-      age = gets.chomp.to_i
-      print 'Name:'
-      name = gets.chomp
       print 'Specialization:'
       specialization = gets.chomp
-      teacher = Teacher.new(specialization, age, name, parent_permission: permission)
+      teacher = Teacher.new(specialization, @age, @name, parent_permission: permission)
       @people.push(teacher)
 
       print 'Teacher created successfully!'

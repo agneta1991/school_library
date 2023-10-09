@@ -5,6 +5,7 @@ class Main
     @app = App.new
   end
 
+  # rubocop:disable Metrics/CyclomaticComplexity
   def run
     puts "\nWelcome to School Library App!\n"
 
@@ -27,6 +28,7 @@ class Main
       end
     end
   end
+  # rubocop:enable Metrics/CyclomaticComplexity
 
   def print_user_options
     puts "\nPlease choose an option by entering a number:\n" \
