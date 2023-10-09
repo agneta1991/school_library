@@ -26,7 +26,8 @@ class App
     puts "\nWould you like to create a student(1) or a teacher(2)?"
     option = gets.chomp.to_i
 
-    if option == 1
+    case option
+    when 1
       print 'Age:'
       age = gets.chomp.to_i
       print 'Name:'
@@ -40,7 +41,7 @@ class App
       @people.push(student)
 
       print 'Student created successfully!'
-    elsif option == 2
+    when 2
       print 'Age:'
       age = gets.chomp.to_i
       print 'Name:'
