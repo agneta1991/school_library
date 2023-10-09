@@ -30,9 +30,9 @@ class App
   end
 
   def create_person
-    ask_name_and_age
     puts "\nWould you like to create a student(1) or a teacher(2)?"
     option = gets.chomp.to_i
+    ask_name_and_age
 
     if option == 1
 
@@ -40,7 +40,7 @@ class App
         print 'Has parent permission? [Y/N]:'
         permission = gets.chomp
       end
-      student = Student.new(age, name, parent_permission: permission)
+      student = Student.new(@age, @name, parent_permission: permission)
       @people.push(student)
 
       print 'Student created successfully!'
@@ -93,6 +93,8 @@ class App
   end
 
   def create_rental
+    select_person
+    select_book
     print 'Date (YYYY/MM/DD): '
     date = gets.chomp
     selected_person = @people[@person_choice - 1]
