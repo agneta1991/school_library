@@ -20,10 +20,12 @@ class Main
       when 1 then @app.list_books
         @onloading.onloading_books_data
       when 2 then @app.list_people
+        @onloading.onloading_people_data
       when 3 then @app.create_person
       when 4 then @app.create_book
       when 5 then @app.create_rental
       when 6 then @app.list_rentals
+        @onloading.onloading_rentals_data
       when 7
         puts 'Exiting the app! Goodbye.'
         @storing.save_books_to_json
