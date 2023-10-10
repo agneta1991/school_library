@@ -17,8 +17,13 @@ class StoringData
     end
 
     filename = 'people.json'
-    File.open(filename, 'a') do |file|
-      file.puts(JSON.generate(people))
+    existing_data = []
+    if File.exist?(filename)
+      existing_data = JSON.parse(File.read(filename))
+    end
+    existing_data.concat(books)
+    File.open(filename, 'w') do |file|
+      file.puts(JSON.generate(existing_data))
     end
   end
 
@@ -31,8 +36,14 @@ class StoringData
     end
 
     filename = 'books.json'
-    File.open(filename, 'a') do |file|
-      file.puts(JSON.generate(books))
+
+    existing_data = []
+    if File.exist?(filename)
+      existing_data = JSON.parse(File.read(filename))
+    end
+    existing_data.concat(books)
+    File.open(filename, 'w') do |file|
+      file.puts(JSON.generate(existing_data))
     end
   end
 
@@ -46,8 +57,13 @@ class StoringData
     end
 
     filename = 'rentals.json'
-    File.open(filename, 'a') do |file|
-      file.puts(JSON.generate(rentals))
+    existing_data = []
+    if File.exist?(filename)
+      existing_data = JSON.parse(File.read(filename))
+    end
+    existing_data.concat(books)
+    File.open(filename, 'w') do |file|
+      file.puts(JSON.generate(existing_data))
     end
   end
 end

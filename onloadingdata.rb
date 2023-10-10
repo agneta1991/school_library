@@ -10,7 +10,9 @@ class OnloadingData
     file_name = './books.json'
     file = File.read(file_name)
     data_hash = JSON.parse(file)
-    puts data_hash
+    data_hash.each do |book|
+      puts "Title: \"#{book['title']}\" Author: #{book['author']}"
+    end
   end
 
   def onloading_renatls_data
