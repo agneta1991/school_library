@@ -1,14 +1,14 @@
 require_relative 'app'
-
+require_relative 'storingdata'
 class Main
   def initialize
     @app = App.new
+    @storing = StoringData.new(@app)
   end
 
   # rubocop:disable Metrics/CyclomaticComplexity
   def run
     puts "\nWelcome to School Library App!\n"
-
     loop do
       print_user_options
       choice = gets.chomp.to_i
@@ -22,6 +22,9 @@ class Main
       when 6 then @app.list_rentals
       when 7
         puts 'Exiting the app! Goodbye.'
+        @storing.save_books_to_json
+        @storing.save_people_to_json
+        @storing.save_rentals_to_json
         break
       else
         puts 'Error: Invalid number.'

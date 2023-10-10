@@ -4,6 +4,8 @@ require_relative 'student'
 require_relative 'teacher'
 
 class App
+  attr_accessor :people, :books, :rentals
+
   def initialize
     @people = []
     @books = []
@@ -35,22 +37,21 @@ class App
     ask_name_and_age
 
     if option == 1
-
       if @age < 18
         print 'Has parent permission? [Y/N]:'
         permission = gets.chomp
       end
       student = Student.new(@age, @name, parent_permission: permission)
       @people.push(student)
-
       print 'Student created successfully!'
+
     elsif option == 2
       print 'Specialization:'
       specialization = gets.chomp
       teacher = Teacher.new(specialization, @age, @name, parent_permission: permission)
       @people.push(teacher)
-
       print 'Teacher created successfully!'
+
     else
       print 'Invalid option.'
     end
