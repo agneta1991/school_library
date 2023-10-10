@@ -18,7 +18,6 @@ class OnloadingData
     file = File.read(file_name)
     data_hash = JSON.parse(file)
     puts data_hash
-    end
   end
 
   def onloading_people_data
