@@ -13,9 +13,17 @@ class StoringData
   end
 
   def save_books_to_json
-    books_file = @app.books.to_json
+    books = @app.books.map do |book|
+      {
+        title: book.title,
+        author: book.author
+      }
+    end
+
     filename = 'books.json'
-    File.write(filename, "#{books_file}\n", mode: 'a')
+    File.open(filename, 'a') do |file|
+      file.puts(JSON.generate(books))
+    end
   end
 
   def save_rentals_to_json
