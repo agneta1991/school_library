@@ -29,7 +29,7 @@ class OnloadingData
     file = File.read(file_name)
     data_hash = JSON.parse(file)
     data_hash.each do |person|
-      puts "[#{person.class.name['type']} Name: #{person['name']} ID: #{person.id['ID']} Age: #{person['age']}
+      puts "[#{person['type']}] Name: #{person['name']} ID: #{person['id']} Age: #{person['age']}"
     end
   end
 end

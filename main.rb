@@ -26,6 +26,7 @@ class Main
       when 5 then @app.create_rental
       when 6 then @app.list_rentals
         @onloading.onloading_rentals_data
+
       when 7
         puts 'Exiting the app! Goodbye.'
         @storing.save_books_to_json

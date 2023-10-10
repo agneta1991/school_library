@@ -11,7 +11,7 @@ class StoringData
       {
         type: person.class.name,
         name: person.name,
-        ID: person.id,
+        id: person.id,
         age: person.age
       }
     end
@@ -36,7 +36,6 @@ class StoringData
     end
 
     filename = 'books.json'
-
     existing_data = []
     if File.exist?(filename)
       existing_data = JSON.parse(File.read(filename))
