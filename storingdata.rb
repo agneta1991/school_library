@@ -21,7 +21,7 @@ class StoringData
     if File.exist?(filename)
       existing_data = JSON.parse(File.read(filename))
     end
-    existing_data.concat(books)
+    existing_data.concat(people)
     File.open(filename, 'w') do |file|
       file.puts(JSON.generate(existing_data))
     end
@@ -61,7 +61,7 @@ class StoringData
     if File.exist?(filename)
       existing_data = JSON.parse(File.read(filename))
     end
-    existing_data.concat(books)
+    existing_data.concat(rentals)
     File.open(filename, 'w') do |file|
       file.puts(JSON.generate(existing_data))
     end
