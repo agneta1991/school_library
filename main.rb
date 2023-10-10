@@ -1,9 +1,12 @@
 require_relative 'app'
 require_relative 'storingdata'
+require_relative 'onloadingdata'
+
 class Main
   def initialize
     @app = App.new
     @storing = StoringData.new(@app)
+    @onloading = OnloadingData.new(@app)
   end
 
   # rubocop:disable Metrics/CyclomaticComplexity
@@ -15,6 +18,7 @@ class Main
 
       case choice
       when 1 then @app.list_books
+        @onloading.onloading_books_data
       when 2 then @app.list_people
       when 3 then @app.create_person
       when 4 then @app.create_book
