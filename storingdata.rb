@@ -12,7 +12,7 @@ class StoringData
         type: person.class.name,
         name: person.name,
         ID: person.id,
-        age: person.age,
+        age: person.age
       }
     end
 
@@ -41,7 +41,7 @@ class StoringData
       {
         date: rental.date,
         title: rental.book.title,
-        author: rental.book.author,
+        author: rental.book.author
       }
     end
 
