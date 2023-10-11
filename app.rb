@@ -2,6 +2,7 @@ require_relative 'book'
 require_relative 'person'
 require_relative 'student'
 require_relative 'teacher'
+require 'pry'
 
 class App
   attr_accessor :people, :books, :rentals
@@ -31,6 +32,14 @@ class App
     @name = gets.chomp
   end
 
+  def create_student
+    if @age < 18
+      print 'Has parent permission? [Y/N]:'
+      permission = gets.chomp
+    end
+    Student.new(@name, @age, parent_permission: permission)
+  end
+
   def create_person
     puts "\nWould you like to create a student(1) or a teacher(2)?"
     option = gets.chomp.to_i
@@ -38,18 +47,14 @@ class App
 
     case option
     when 1
-      if @age < 18
-        print 'Has parent permission? [Y/N]:'
-        permission = gets.chomp
-      end
-      student = Student.new(@age, @name, parent_permission: permission)
+      student = create_student
       @people.push(student)
       print 'Student created successfully!'
 
     when 2
       print 'Specialization:'
       specialization = gets.chomp
-      teacher = Teacher.new(specialization, @age, @name, parent_permission: permission)
+      teacher = Teacher.new(@name, @age, specialization, parent_permission: permission)
       @people.push(teacher)
       print 'Teacher created successfully!'
 
@@ -101,7 +106,6 @@ class App
     date = gets.chomp
     selected_person = @people[@person_choice - 1]
     selected_book = @books[@book_choice - 1]
-
     rental = selected_person.add_rental(date, selected_book)
     @rentals.push(rental)
     puts 'Rental created successfully!'

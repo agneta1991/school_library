@@ -1,5 +1,6 @@
 require 'json'
 require_relative 'app'
+require 'pry'
 
 class StoringData
   def initialize(app)
@@ -17,13 +18,8 @@ class StoringData
     end
 
     filename = 'people.json'
-    existing_data = []
-    if File.exist?(filename)
-      existing_data = JSON.parse(File.read(filename))
-    end
-    existing_data.concat(people)
     File.open(filename, 'w') do |file|
-      file.puts(JSON.generate(existing_data))
+      file.puts(JSON.generate(people))
     end
   end
 
@@ -31,18 +27,14 @@ class StoringData
     books = @app.books.map do |book|
       {
         title: book.title,
-        author: book.author
+        author: book.author,
+        id: book.id
       }
     end
 
     filename = 'books.json'
-    existing_data = []
-    if File.exist?(filename)
-      existing_data = JSON.parse(File.read(filename))
-    end
-    existing_data.concat(books)
     File.open(filename, 'w') do |file|
-      file.puts(JSON.generate(existing_data))
+      file.puts(JSON.generate(books))
     end
   end
 
@@ -50,19 +42,14 @@ class StoringData
     rentals = @app.rentals.map do |rental|
       {
         date: rental.date,
-        title: rental.book.title,
-        author: rental.book.author
+        book: rental.book.id,
+        person: rental.person.id
       }
     end
 
     filename = 'rentals.json'
-    existing_data = []
-    if File.exist?(filename)
-      existing_data = JSON.parse(File.read(filename))
-    end
-    existing_data.concat(rentals)
     File.open(filename, 'w') do |file|
-      file.puts(JSON.generate(existing_data))
+      file.puts(JSON.generate(rentals))
     end
   end
 end

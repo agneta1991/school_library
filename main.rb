@@ -9,29 +9,36 @@ class Main
     @onloading = OnloadingData.new(@app)
   end
 
+  def onloading_data
+    @onloading.onloading_books_data
+    @onloading.onloading_people_data
+    @onloading.onloading_rentals_data
+  end
+
+  def saving_data
+    @storing.save_books_to_json
+    @storing.save_people_to_json
+    @storing.save_rentals_to_json
+  end
+
   # rubocop:disable Metrics/CyclomaticComplexity
   def run
     puts "\nWelcome to School Library App!\n"
+    onloading_data
+
     loop do
       print_user_options
       choice = gets.chomp.to_i
-
       case choice
       when 1 then @app.list_books
-        @onloading.onloading_books_data
       when 2 then @app.list_people
-        @onloading.onloading_people_data
       when 3 then @app.create_person
       when 4 then @app.create_book
       when 5 then @app.create_rental
       when 6 then @app.list_rentals
-        @onloading.onloading_rentals_data
-
       when 7
         puts 'Exiting the app! Goodbye.'
-        @storing.save_books_to_json
-        @storing.save_people_to_json
-        @storing.save_rentals_to_json
+        saving_data
         break
       else
         puts 'Error: Invalid number.'
