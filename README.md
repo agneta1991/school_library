@@ -79,6 +79,13 @@ GitHub: @agneta1991<br>
 Twitter: @pupienytea<br>
 LinkedIn: LinkedIn<br>
 
+👤 *Joy Tari*
+
+- GitHub: [Joy](https://github.com/JoyTaribagshaw)
+- Twitter: [Joy](https://twitter.com/JoyTariBagshaw)
+- LinkedIn: [Joy](https://www.linkedin.com/in/joytaribagshaw/)
+
+
 ## 🔭 Future Features <a name="future-features"></a>
 
 <details>
