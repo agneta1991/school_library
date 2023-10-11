@@ -1,6 +1,5 @@
 require_relative 'app'
 require 'json'
-require 'pry'
 
 class OnloadingData
   def initialize(app)

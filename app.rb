@@ -2,7 +2,6 @@ require_relative 'book'
 require_relative 'person'
 require_relative 'student'
 require_relative 'teacher'
-require 'pry'
 
 class App
   attr_accessor :people, :books, :rentals
@@ -54,7 +53,7 @@ class App
     when 2
       print 'Specialization:'
       specialization = gets.chomp
-      teacher = Teacher.new(@name, @age, specialization, parent_permission: permission)
+      teacher = Teacher.new(@name, @age, specialization)
       @people.push(teacher)
       print 'Teacher created successfully!'
 
