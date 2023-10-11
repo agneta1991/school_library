@@ -8,12 +8,15 @@ class StoringData
 
   def save_people_to_json
     people = @app.people.map do |person|
-      {
+      hash = {
         type: person.class.name,
         name: person.name,
         id: person.id,
-        age: person.age
+        age: person.age,
+        parent_permission: person.parent_permission
       }
+      hash['spacialization'] = person.specialization if person.respond_to? :specialization
+      hash
     end
 
     filename = 'people.json'

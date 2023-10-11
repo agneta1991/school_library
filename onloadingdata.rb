@@ -39,7 +39,9 @@ class OnloadingData
     file = File.read(file_name)
     data_hash = JSON.parse(file)
     data_hash.each do |person|
-      person = Object.const_get(person['type']).new(person['name'], person['age'], id: person['id'])
+      hash = { id: person['id'], parent_permission: person['parent_permission'] }
+      hash['specialization'] = person['specialization'] if person['specialization']
+      person = Object.const_get(person['type']).new(person['name'], person['age'], **hash)
       @app.people.push(person)
     end
   end

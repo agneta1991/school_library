@@ -2,6 +2,7 @@ require_relative 'book'
 require_relative 'person'
 require_relative 'student'
 require_relative 'teacher'
+require 'pry'
 
 class App
   attr_accessor :people, :books, :rentals
@@ -32,9 +33,10 @@ class App
   end
 
   def create_student
+    permission = true
     if @age < 18
       print 'Has parent permission? [Y/N]:'
-      permission = gets.chomp
+      permission = gets.chomp.downcase == 'y'
     end
     Student.new(@name, @age, parent_permission: permission)
   end
@@ -99,8 +101,8 @@ class App
   end
 
   def create_rental
-    select_person
-    select_book
+    return unless select_person && select_book
+
     print 'Date (YYYY/MM/DD): '
     date = gets.chomp
     selected_person = @people[@person_choice - 1]
