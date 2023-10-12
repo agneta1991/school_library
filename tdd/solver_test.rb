@@ -8,6 +8,3 @@ describe Solver do
     end
   end
 end
-
-# NoMethodError:
-# undefined method `factorial' for Solver:Class
