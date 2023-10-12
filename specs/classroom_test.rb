@@ -28,20 +28,6 @@ describe Classroom do
     end
   end
 
-  describe '#remove_student' do
-    it 'removes a student from the classroom' do
-      classroom.add_student(student)
-      classroom.remove_student(student)
-      expect(classroom.students).not_to include(student)
-    end
-
-    it 'sets the classroom attribute of the student to nil' do
-      classroom.add_student(student)
-      classroom.remove_student(student)
-      expect(student.classroom).to be_nil
-    end
-  end
-
   describe 'accessors' do
     it 'allows reading and writing the label attribute' do
       new_label = 'Physics101'

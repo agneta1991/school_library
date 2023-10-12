@@ -1,6 +1,7 @@
-require 'rental'
-require 'book'
-require 'person'
+require './rental'
+require './book'
+require './person'
+require 'rspec'
 
 describe Rental do
   let(:date) { '2023-08-25' }
