@@ -18,5 +18,4 @@ class Solver
   "fizz"
 end
 
-
 end

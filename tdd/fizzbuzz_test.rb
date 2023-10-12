@@ -10,3 +10,7 @@ describe '.fizzbuzz' do
     expect(Solver.fizzbuzz(9)).to eq('fizz')
   end
 end
+
+it 'returns "buzz" for multiples of 5' do
+  expect(Solver.fizzbuzz(10)).to eq('buzz')
+end
