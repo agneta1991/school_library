@@ -8,7 +8,14 @@ describe Solver do
     end
 
     it 'returns 1 for factorial of 0' do
-        expect(Solver.factorial(0)).to eq(1)
-      end
+      expect(Solver.factorial(0)).to eq(1)
+    end
+
+    it 'raises an error for negative input' do
+      expect { Solver.factorial(-3) }.to raise_error(ArgumentError, 'number has to be positive or 0')
+    end
   end
 end
+
+# Failure/Error: expect { Solver.factorial(-3) }.to raise_error(ArgumentError, "number has to be positive or 0")
+# expected ArgumentError with "number has to be positive or 0" but nothing was raised
