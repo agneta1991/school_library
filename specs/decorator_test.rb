@@ -1,10 +1,11 @@
 require 'rspec'
 require './decorator'
+require './nameable'
+require './person'
 
 describe Decorator do
-
-  let(:nameable) { Nameable.new }
-  let(:decorator) { Decorator.new(nameable) }
+  nameable = Nameable.new
+  decorator = Decorator.new(nameable)
 
   describe '#initialize' do
     it 'should set the nameable attribute' do
@@ -14,7 +15,9 @@ describe Decorator do
 
   describe '#correct_name' do
     it 'should delegate the call to the nameable' do
-      expect(decorator.correct_name).to eq(nameable.correct_name)
+      allow(nameable).to receive(:correct_name).and_return('John')
+      result = decorator.correct_name
+      expect(result).to eq('John')
     end
   end
 end
