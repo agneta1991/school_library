@@ -20,9 +20,11 @@ end
 
 def self.fizzbuzz(n)
   if n % 3 == 0
-    "fizz"
+    'fizz'
   elsif n % 5 == 0
-  "buzz"
+    'buzz'
+  elsif (n % 3 == 0) && (n % 5 == 0)
+    'fizzbuzz'
   end
 end
 
