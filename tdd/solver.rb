@@ -8,4 +8,9 @@ class Solver
       (1..n).reduce(:*)
     end
   end
+  
+  def self.reverse(word)
+    word.reverse
+  end
+
 end
