@@ -16,6 +16,3 @@ describe Solver do
     end
   end
 end
-
-# Failure/Error: expect { Solver.factorial(-3) }.to raise_error(ArgumentError, "number has to be positive or 0")
-# expected ArgumentError with "number has to be positive or 0" but nothing was raised
