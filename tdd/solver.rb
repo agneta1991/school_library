@@ -1,5 +1,9 @@
 class Solver
   def self.factorial(n)
-    (1..n).reduce(:*)
+    if n == 0
+      1
+    else
+      (1..n).reduce(:*)
+    end
   end
 end

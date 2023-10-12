@@ -12,8 +12,3 @@ describe Solver do
       end
   end
 end
-
-# Failure/Error: expect(Solver.factorial(0)).to eq(1)  
-#        expected: 1
-#             got: nil
-#        (compared using ==)
